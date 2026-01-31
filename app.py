@@ -16,7 +16,7 @@ st.set_page_config(page_title="Model Evaluator", layout="wide")
 st.title("🛒 Model Performance Evaluator")
 
 # Github URL for test data
-csv_url = "https://raw.githubusercontent.com/rohitasharma9839-dotcom/test2/refs/heads/main/test.csv"
+csv_url = "https://raw.githubusercontent.com/rohitasharma9839-dotcom/finalTest/refs/heads/main/adult_test.csv"
 
 # ===========================
 # 2. Shared Preprocessing Logic
@@ -117,4 +117,5 @@ try:
             st.dataframe(pd.DataFrame(report).transpose())
 
 except Exception as e:
+
     st.error(f"Waiting for test data or model files... Error: {e}")
