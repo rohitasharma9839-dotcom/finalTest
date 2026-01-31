@@ -64,6 +64,18 @@ try:
     raw_test_df = pd.read_csv(csv_url)
     st.write("### Test Dataset Preview")
     st.dataframe(raw_test_df.head())
+
+    # --- NEW: DOWNLOAD BUTTON SECTION ---
+    st.write("Click below to download the test dataset for your records:")
+    csv_download = raw_test_df.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="📥 Download test.csv",
+        data=csv_download,
+        file_name="adult_test_data.csv",
+        mime="text/csv",
+    )
+    st.write("---")
+    # ------------------------------------
     
     if st.button(f"Evaluate {selected_model}"):
         # Process data
@@ -119,3 +131,4 @@ try:
 except Exception as e:
 
     st.error(f"Waiting for test data or model files... Error: {e}")
+
